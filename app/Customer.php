@@ -46,5 +46,10 @@ class Customer extends Model
         $this->attributes['razon_social']= strtoupper($value);
 
     }
+    
+    public function checkingaccount(){
+        
+        $this->hasOne('App\CheckingAccount');
+    }
 
 }
