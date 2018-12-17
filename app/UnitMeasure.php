@@ -30,7 +30,6 @@ class UnitMeasure extends Model
 
     public function articles(){
 
-
         return $this->hasMany('App\Article','unit_measure_id','id');
 
     }
