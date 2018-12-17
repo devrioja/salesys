@@ -22,6 +22,8 @@ class CreateArticlesTable extends Migration
                   ->unsigned()->index();
             $table->integer('brand_id')
                   ->unsigned()->index();
+            $table->integer('unit_measure_id')
+                ->unsigned()->index();
             $table->double('stockMin');
             $table->double('stockMax')
                   ->nullable();
@@ -34,6 +36,10 @@ class CreateArticlesTable extends Migration
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories');
+
+            $table->foreign('unit_measure_id')
+                ->references('id')
+                ->on('unit_measures');
 
             $table->foreign('brand_id')
                 ->references('id')

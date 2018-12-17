@@ -25,7 +25,7 @@ class Article extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'descripcion', 'category_id', 'brand_id', 'stockMin', 'stockMax', 'precio'];
+    protected $fillable = ['nombre', 'descripcion', 'category_id', 'brand_id', 'stockMin', 'stockMax', 'precio','unit_measure_id'];
 
     
     
@@ -43,6 +43,12 @@ class Article extends Model
     public function brand(){
 
         return $this->belongsTo('App\Brand');
+
+    }
+
+    public function unitMeasure(){
+
+        return $this->belongsTo('App\UnitMeasure');
 
     }
 

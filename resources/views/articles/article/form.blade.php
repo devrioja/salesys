@@ -22,6 +22,12 @@
         {!! Form::select('brand_id',$brands,null, ['class' => 'form-control']) !!}
         {!! $errors->first('brand_id', '<p class="help-block">:message</p>') !!}
     </div>
+</div><div class="form-group {{ $errors->has('unit_measure_id') ? 'has-error' : ''}}">
+    {!! Form::label('unit_measure_id', 'Unidad de Medida', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::select('unit_measure_id',$unit_measures,null, ['class' => 'form-control']) !!}
+        {!! $errors->first('unit_measure_id', '<p class="help-block">:message</p>') !!}
+    </div>
 </div><div class="form-group {{ $errors->has('stockMin') ? 'has-error' : ''}}">
     {!! Form::label('stockMin', 'Stock Minimo', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">

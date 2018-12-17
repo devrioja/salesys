@@ -37,6 +37,11 @@
                     </a>
                 </li>
                 <li role="presentation">
+                    <a href="{{ url('/unit-measure') }}">
+                        Unidades de Medida
+                    </a>
+                </li>
+                <li role="presentation">
                     <a href="{{ url('/deliverynote') }}">
                         Remitos
                     </a>

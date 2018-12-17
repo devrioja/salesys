@@ -32,3 +32,5 @@ Route::resource('sale', 'Sale\\SaleController');
 Route::get('querydb','SearchLiveController@query');
 Route::resource('deliverynote', 'DeliveryNote\\DeliveryNoteController');
 Route::resource('checking-account', 'CheckingAccount\\CheckingAccountController');
+
+Route::resource('unit-measure', 'UnitMeasure\\UnitMeasureController');

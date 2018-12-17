@@ -53,9 +53,10 @@ class ArticleController extends Controller
     {
             $categories = DB::table('categories')->pluck('nombre','id');
             $brands     = DB::table('brands')->pluck('nombre','id');
+            $unit_measures     = DB::table('unit_measures')->pluck('nombre','id');
 
 
-        return view('articles.article.create',compact('categories','brands'));
+        return view('articles.article.create',compact('categories','brands','unit_measures'));
     }
 
     /**
@@ -105,10 +106,11 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::findOrFail($id);
-        $categories = DB::table('categories')->pluck('nombre','id');
-        $brands     = DB::table('brands')->pluck('nombre','id');
+        $categories        = DB::table('categories')->pluck('nombre','id');
+        $brands            = DB::table('brands')->pluck('nombre','id');
+        $unit_measures     = DB::table('unit_measures')->pluck('nombre','id');
 
-        return view('articles.article.edit', compact('article','categories','brands'));
+        return view('articles.article.edit', compact('article','categories','brands','unit_measures'));
     }
 
     /**
