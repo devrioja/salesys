@@ -162,6 +162,7 @@ class DepositController extends Controller
         $deposit = Deposit::find($deliveryNote->deposit_id);
         
         foreach ($deliveryNote->articles as $article){
+                print_r($article);
                 $articleDeposit = $deposit->article()->find($article->id);
                 $deposit-$article()->updateExistingPivot($article->id,array('stock' =>($articleDeposit->pivot->stock - $article->cantidad_ingresada)));
         }

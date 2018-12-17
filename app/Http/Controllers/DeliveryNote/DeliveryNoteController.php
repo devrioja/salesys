@@ -36,10 +36,20 @@ class DeliveryNoteController extends Controller
                 ->orWhere('numero_remito', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $deliverynote = DeliveryNote::paginate($perPage);
+           // $deliverynote = DeliveryNote::paginate($perPage);
+           $deliverynote = DB::table('delivery_notes')
+                            ->join('suppliers','supplier_id','suppliers.id')
+                            ->join('deposits','deposit_id','deposits.id')
+                            ->select('delivery_notes.id as id_deliverynote','delivery_notes.fecha','delivery_notes.numero_remito','delivery_notes.supplier_id','delivery_notes.deposit_id','suppliers.nombre as nombre_s','deposits.nombre as nombre_d')
+                            ->orderBy('id_deliverynote', 'desc')
+                            ->get();
+            //$deliverynote = DeliveryNote::orderBy('id','desc')
+              //              ->paginate($perPage);
+            //print_r($deliverynote);
+
         }
 
-        return view('deliverynote.deliverynote.index', compact('deliverynote'));
+        return view('deliverynote.deliverynote.index')->with(compact('deliverynote'));
     }
 
     /**
@@ -123,7 +133,7 @@ class DeliveryNoteController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update($id, Request $request)
-    {
+    {   print("hola mundo");
         $deliveryNoteOld = DeliveryNote::find($id);
         $depositUpdated = $request->input('deposit_id');
         $articles = $request->input('articles');

@@ -121,6 +121,7 @@ class ArticleController extends Controller
      */
     public function update($id, Request $request)
     {
+        
         $this->validate($request, [
 			'nombre' => 'min:5|required',
 			'stockMin' => 'required',

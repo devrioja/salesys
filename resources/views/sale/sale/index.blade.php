@@ -37,7 +37,7 @@
                                 @foreach($sale as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->fecha }}</td><td>{{ $item->customer_id }}</td><td>{{ $item->costoTotal }}</td>
+                                        <td>{{ $item->fecha }}</td><td>{{ $item->customer->nombre }}</td><td>{{ $item->costoTotal }}</td>
                                         <td>
                                             <a href="{{ url('/sale/' . $item->id) }}" title="View Sale"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/sale/' . $item->id . '/edit') }}" title="Edit Sale"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

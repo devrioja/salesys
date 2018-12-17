@@ -36,16 +36,16 @@
                                 <tbody>
                                 @foreach($deliverynote as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->id_deliverynote }}</td>
                                         <td>{{ Carbon\Carbon::parse($item->fecha)->format('d-m-Y') }}</td>
                                         <td>{{ $item->numero_remito }}</td>
-                                        <td>{{ \App\Supplier::find($item->supplier_id)->nombre }}</td>
+                                        <td>{{ $item->nombre_s }}</td>
                                         <td>
-                                            <a href="{{ url('/deliverynote/' . $item->id) }}" title="View DeliveryNote"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/deliverynote/' . $item->id . '/edit') }}" title="Edit DeliveryNote"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/deliverynote/' . $item->id_deliverynote) }}" title="View DeliveryNote"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/deliverynote/' . $item->id_deliverynote . '/edit') }}" title="Edit DeliveryNote"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
-                                                'url' => ['/deliverynote', $item->id],
+                                                'url' => ['/deliverynote', $item->id_deliverynote],
                                                 'style' => 'display:inline'
                                             ]) !!}
                                                 {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
@@ -60,7 +60,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $deliverynote->appends(['search' => Request::get('search')])->render() !!} </div>
+
                         </div>
 
                     </div>
